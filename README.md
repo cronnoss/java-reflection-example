@@ -65,3 +65,22 @@ then the alphabetical order should be preserved
 
 9 There is an array of lines, each of which contains a set of 5 lines separated by a space, find the longest among all
 the words, if there are several such words, get any of them
+
+### Topic: Java multithreading
+
+Try implementing your own thread pool. The pool's capacity (the number of worker threads) is passed as constructor
+arguments.
+
+Once the pool is created, it immediately initializes and starts the threads. Inside the pool, the task queue for
+execution is organized via a LinkedList<Runnable>.
+
+When the thread pool executes the execute(Runnabler) method, the specified task must be put into the execution queue,
+and as soon as a free thread appears, it must be executed.
+
+It is also necessary to implement the shutdown() method, after which new tasks are no longer accepted by the pool (an
+IllegalStateException can be thrown when trying to add a task), and all threads for which there are no more tasks
+terminate their work.
+
+Additionally, you can add the awaitTermination() method without a timeout, which works similarly to standard thread
+pools.
+
